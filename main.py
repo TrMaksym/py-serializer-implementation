@@ -12,7 +12,6 @@ def serialize_car_object(car: Car) -> bytes:
     return json.dumps(serializer.data).encode("utf-8")
 
 
-
 def deserialize_car_object(json: bytes) -> Car:
     stream = io.BytesIO(json)
     data = JSONParser().parse(stream)
@@ -20,6 +19,3 @@ def deserialize_car_object(json: bytes) -> Car:
     if serializer.is_valid():
         return serializer.data
     raise ValueError(serializer.errors)
-
-
-
